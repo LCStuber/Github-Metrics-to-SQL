@@ -18,7 +18,7 @@ public class SortingProgram {
         do {
             swapped = false;
             for (int i = 0; i < numbers.length - 1; i++) {
-                if (numbers[i] > numbers[i + 1) {
+                if (numbers[i] > numbers[i + 1]) {
                     // Trocando os elementos de posição
                     int temp = numbers[i];
                     numbers[i] = numbers[i];

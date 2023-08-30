@@ -1,6 +1,8 @@
 import java.util.Random;
 
 public class SortingProgram2 {
+    static int testsAmount = 0;
+
     public static void main(String[] args) {
         int[] numbers = new int[100];
         Random random = new Random();
@@ -16,19 +18,18 @@ public class SortingProgram2 {
         bubbleSort(numbers);
         long endTime = System.nanoTime();
         int attemptFails = connectWithDatabase();
-        int testsAmount = getTotalTestsAmount();
 
         System.out.println("Vetor ordenado:");
         printArray(numbers);
 
         // Criar tabela e inserir dados
-        MetricsTableCreator.createMetricsTable();
-        MetricsTableCreator.insertMetricsData(linesOfCode, endTime - startTime, attemptFails, testsAmount);
+        MetricsTableCreator.insertMetricsData(linesOfCode, attemptFails, endTime - startTime, ++testsAmount);
 
         // Executar Bubble Sort 100 vezes
         for (int i = 0; i < 100; i++) {
             bubbleSort(numbers);
         }
+        main(args);
     }
 
     public static void bubbleSort(int[] arr) {
@@ -54,9 +55,7 @@ public class SortingProgram2 {
 
     // Métrica: Linhas de código do programa
     public static int getLinesOfCode() {
-        String code = // Read your code from files or other sources
-        String[] lines = code.split("\n");
-        return lines.length;
+        return 72;
     }
 
     // Métrica: Tentativas falhas de conexão com banco de dados
@@ -68,11 +67,5 @@ public class SortingProgram2 {
             attemptFails++;
         }
         return attemptFails;
-    }
-
-    // Métrica: Quantidade total de testes
-    public static int getTotalTestsAmount() {
-        int testsAmount = // Count your total tests
-        return testsAmount;
     }
 }
